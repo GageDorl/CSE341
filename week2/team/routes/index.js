@@ -1,6 +1,6 @@
 const routes = require('express').Router();
 const path = require('path');
-const data = require('../data');
+const {getData} = require('../controllers');
 
 const parentDirectory = path.join(__dirname, '..');
 
@@ -16,8 +16,6 @@ routes.get('/style.css', (req, res) =>{
     res.sendFile(parentDirectory + '/style.css');
 });
 
-routes.get('/professional', (req, res) => {
-    res.json(data)
-})
+routes.get('/professional', getData);
 
 module.exports = routes;
