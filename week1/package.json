@@ -1,0 +1,24 @@
+{
+  "name": "cse341",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GageDorl/CSE341.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GageDorl/CSE341/issues"
+  },
+  "homepage": "https://github.com/GageDorl/CSE341#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "mongodb": "^6.20.0"
+  }
+}
