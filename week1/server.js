@@ -4,6 +4,8 @@ const app = express();
 const routes = require('./routes');
 const contactRoutes = require('./routes/contacts');
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use('/', routes);
 app.use('/', contactRoutes);
 

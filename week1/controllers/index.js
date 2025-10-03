@@ -13,12 +13,48 @@ const getAllContacts = async (req, res, next) => {
 const getContact = async (req, res, next) => {
     const client = new MongoClient(URI);
     await client.connect();
-    const data = await client.db("personalAssignment").collection("contacts").findOne({_id: new ObjectId(req.query.id)});
+    const data = await client.db("personalAssignment").collection("contacts").findOne({_id: new ObjectId(req.params.id)});
     res.json(data);
+}
+
+const createContact = async (req, res, next) => {
+    const client = new MongoClient(URI);
+    await client.connect();
+    console.log(req.body);
+    const contact = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
+    };
+    await client.db("personalAssignment").collection("contacts").insertOne(contact);
+    res.json(contact);
+}
+
+const updateContact = async (req, res, next) => {
+    const client = new MongoClient(URI);
+    await client.connect();
+    const contact = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
+    };
+    await client.db("personalAssignment").collection("contacts").replaceOne({_id: new ObjectId(req.params.id)}, contact);
+    res.json(contact);
+}
+
+const deleteContact = async (req, res, next) => {
+    const client = new MongoClient(URI);
+    await client.connect();
+    await client.db("personalAssignment").collection("contacts").deleteOne({_id: new ObjectId(req.params.id)});
+    res.json("Contact Deleted");
 }
 
 const beautifulGirl = (req, res, next) => {
     res.json('Rory Mashack');
 };
 
-module.exports = { beautifulGirl, getAllContacts, getContact };
+module.exports = { beautifulGirl, getAllContacts, getContact, updateContact, createContact, deleteContact };
