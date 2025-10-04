@@ -23,11 +23,11 @@ Content-Type: application/json
     "firstName": "Gage",
     "lastName": "D'Orlando",
     "email": "gagedorlando@gmail.com",
-    "favoriteColor": "Blue",
+    "favoriteColor": "Orange",
     "birthday": "07/17/2001"
 }
 ###
-DELETE http://localhost:3000/delete_contact/68e0189e759fab8011eacaf0 HTTP/1.1
+DELETE http://localhost:3000/delete_contact/68e1532df172842bb26a1c0b HTTP/1.1
 ###
 GET http://localhost:3000/contact/68d6ec3852c16bd51fddd20e HTTP/1.1
 ###
@@ -58,3 +58,5 @@ Content-Type: application/json
     "favoriteColor": "Blue",
     "birthday": "05/15/1985"
 }
+###
+DELETE https://cse341-u4ij.onrender.com/delete_contact/68e01951cce3b320191a232d HTTP/1.1

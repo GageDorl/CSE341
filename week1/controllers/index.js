@@ -20,7 +20,6 @@ const getContact = async (req, res, next) => {
 const createContact = async (req, res, next) => {
     const client = new MongoClient(URI);
     await client.connect();
-    console.log(req.body);
     const contact = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -28,8 +27,9 @@ const createContact = async (req, res, next) => {
         favoriteColor: req.body.favoriteColor,
         birthday: req.body.birthday
     };
-    await client.db("personalAssignment").collection("contacts").insertOne(contact);
-    res.json(contact);
+    const results = await client.db("personalAssignment").collection("contacts").insertOne(contact);
+
+    res.json(results.insertedId);
 }
 
 const updateContact = async (req, res, next) => {
@@ -42,8 +42,8 @@ const updateContact = async (req, res, next) => {
         favoriteColor: req.body.favoriteColor,
         birthday: req.body.birthday
     };
-    await client.db("personalAssignment").collection("contacts").replaceOne({_id: new ObjectId(req.params.id)}, contact);
-    res.json(contact);
+    const results = await client.db("personalAssignment").collection("contacts").replaceOne({_id: new ObjectId(req.params.id)}, contact);
+    res.status(204).send();
 }
 
 const deleteContact = async (req, res, next) => {
