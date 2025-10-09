@@ -1,14 +1,11 @@
 const express = require('express');
 const app = express();
 
-const routes = require('./routes');
-const contactRoutes = require('./routes/contacts');
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/', routes);
-app.use('/', contactRoutes);
+app.use('/', require('./routes'));
+app.use('/', require('./routes/contacts'));
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`Server is running on port ${process.env.PORT || 3000}...`);
+app.listen(process.env.PORT || 8080, () => {
+    console.log(`Server is running on port ${process.env.PORT || 8080}...`);
 });
