@@ -1,0 +1,71 @@
+GET localhost:3000/crags HTTP/1.1
+
+###
+GET localhost:3000/crags/68f4306bd0412106639ec72c HTTP/1.1
+
+###
+
+POST localhost:3000/crags HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Heise Rock",
+    "location": "{43.636090, -111.674387}",
+    "description": "Crag permanently closed, private property, no trespassing.",
+    "rockType": "granite",
+    "approachTime": "5 minutes",
+    "styles": ["trad", "sport"],
+    "gradeRange": "5.9 - 5.12d"
+}
+
+###
+PUT localhost:3000/crags/68f4306bd0412106639ec72c HTTP/1.1
+Content-Type: application/json
+{
+    "name": "Paramount Rock",
+    "location": "{43.637898, -111.654301}",
+    "description": "Sunny during the morning, shady in the afternoon. This is often a windy area. All routes except Fly by Night, Positively Negative, and Spraypaint can be done with 50 meter rope.",
+    "rockType": "granite",
+    "approachTime": "10 minutes",
+    "styles": ["trad", "sport", "bouldering"],
+    "gradeRange": "5.7 - 5.11b"
+}
+
+###
+DELETE localhost:3000/crags/68f4306bd0412106639ec72c HTTP/1.1
+###
+GET cse341-1-7bum.onrender.com:3000/crags HTTP/1.1
+
+###
+GET cse341-1-7bum.onrender.com/crags/68f4306bd0412106639ec72c HTTP/1.1
+
+###
+
+POST cse341-1-7bum.onrender.comcrags HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Heise Rock",
+    "location": "{43.636090, -111.674387}",
+    "description": "Crag permanently closed, private property, no trespassing.",
+    "rockType": "granite",
+    "approachTime": "5 minutes",
+    "styles": ["trad", "sport"],
+    "gradeRange": "5.9 - 5.12d"
+}
+
+###
+PUT cse341-1-7bum.onrender.com/crags/68f4306bd0412106639ec72c HTTP/1.1
+Content-Type: application/json
+{
+    "name": "Paramount Rock",
+    "location": "{43.637898, -111.654301}",
+    "description": "Sunny during the morning, shady in the afternoon. This is often a windy area. All routes except Fly by Night, Positively Negative, and Spraypaint can be done with 50 meter rope.",
+    "rockType": "granite",
+    "approachTime": "10 minutes",
+    "styles": ["trad", "sport", "bouldering"],
+    "gradeRange": "5.7 - 5.11b"
+}
+
+###
+DELETE cse341-1-7bum.onrender.com/crags/68f4306bd0412106639ec72c HTTP/1.1
