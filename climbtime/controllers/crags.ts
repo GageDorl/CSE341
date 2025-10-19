@@ -65,6 +65,7 @@ const updateCrag = async (req: any, res: any) => {
         const db = client.db('climbtime');
         const result = await db.collection('crags').updateOne({ _id: new ObjectId(req.params.id) }, { $set: cragData });
         res.json(result);
+        res.status(201).end();
     } finally {
         await client.close();
     }
