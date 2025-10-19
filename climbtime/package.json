@@ -1,0 +1,29 @@
+{
+  "name": "climbtime",
+  "version": "1.0.0",
+  "description": "API for finding climbing crags, routes, and viewing comments on routes",
+  "main": "server.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --experimental-transform-types server.ts",
+    "swagger": "node --experimental-transform-types swagger.ts"
+  },
+  "author": "gagedorl",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/swagger-ui-express": "^4.1.8",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongodb": "^6.20.0",
+    "process": "^0.11.10",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.8.1"
+  }
+}
