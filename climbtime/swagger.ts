@@ -4,7 +4,7 @@ const doc = {
         title: 'ClimbTime API',
         description: 'API for finding climbing crags, routes, and viewing comments on routes',
     },
-    host: 'localhost:3000'
+    host: 'cse341-1-7bum.onrender.com'
 };
 
 const outputFile = './swagger.json';
