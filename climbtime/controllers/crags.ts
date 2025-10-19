@@ -32,9 +32,18 @@ const getCragById = async (req: any, res: any) => {
 
 const createCrag = async (req: any, res: any) => {
     try {
+        const cragData = {
+            name: req.body.name,
+            location: req.body.location,
+            description: req.body.description,
+            rockType: req.body.rockType,
+            approachTime: req.body.approachTime,
+            style: req.body.style,
+            gradeRange: req.body.gradeRange
+        }
         client.connect();
         const db = client.db('climbtime');
-        const result = await db.collection('crags').insertOne(req.body);
+        const result = await db.collection('crags').insertOne(cragData);
         res.json(result.insertedId);
     } finally {
         await client.close();
@@ -43,9 +52,18 @@ const createCrag = async (req: any, res: any) => {
 
 const updateCrag = async (req: any, res: any) => {
     try {
+        const cragData = {
+            name: req.body.name,
+            location: req.body.location,
+            description: req.body.description,
+            rockType: req.body.rockType,
+            approachTime: req.body.approachTime,
+            style: req.body.style,
+            gradeRange: req.body.gradeRange
+        }
         client.connect();
         const db = client.db('climbtime');
-        const result = await db.collection('crags').updateOne({ _id: new ObjectId(req.params.id) }, { $set: req.body });
+        const result = await db.collection('crags').updateOne({ _id: new ObjectId(req.params.id) }, { $set: cragData });
         res.json(result);
     } finally {
         await client.close();
