@@ -50,7 +50,7 @@ exports.findAll = (req, res) => {
         res.send(data);
       })
       .catch((err) => {
-        res.status(500).send({
+        res.status(err.status).send({
           message:
             err.message || 'Some error occurred while retrieving temples.',
         });
@@ -73,8 +73,9 @@ exports.findOne = (req, res) => {
         else res.send(data[0]);
       })
       .catch((err) => {
-        res.status(500).send({
-          message: 'Error retrieving Temple with temple_id=' + temple_id,
+        res.status(err.status).send({
+          message: 
+            err.message || 'Error retrieving Temple with id=' + temple_id,
         });
       });
   } else {
@@ -101,8 +102,9 @@ exports.update = (req, res) => {
       } else res.send({ message: 'Temple was updated successfully.' });
     })
     .catch((err) => {
-      res.status(500).send({
-        message: 'Error updating Temple with id=' + id,
+      res.status(err.status).send({
+        message: 
+          err.message || 'Error updating Temple with id=' + id,
       });
     });
 };
@@ -124,8 +126,9 @@ exports.delete = (req, res) => {
       }
     })
     .catch((err) => {
-      res.status(500).send({
-        message: 'Could not delete Temple with id=' + id,
+      res.status(err.status).send({
+        message: 
+          err.message || 'Could not delete Temple with id=' + id,
       });
     });
 };
@@ -139,7 +142,7 @@ exports.deleteAll = (req, res) => {
       });
     })
     .catch((err) => {
-      res.status(500).send({
+      res.status(err.status).send({
         message:
           err.message || 'Some error occurred while removing all temple.',
       });
@@ -153,7 +156,7 @@ exports.findAllPublished = (req, res) => {
       res.send(data);
     })
     .catch((err) => {
-      res.status(500).send({
+      res.status(err.status).send({
         message:
           err.message || 'Some error occurred while retrieving temple.',
       });
