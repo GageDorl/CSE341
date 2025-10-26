@@ -10,10 +10,12 @@ const client = new MongoClient(URI);
 
 const getCrags = async (req: any, res: any) => {
     try {
-        client.connect();
+        await client.connect();
         const db = client.db('climbtime');
         const crags = await db.collection('crags').find().toArray();
         res.json(crags);
+    } catch (error: any) {
+        res.status(error.status || 500).json({ error: 'Internal Server Error' });
     } finally {
         await client.close();
     }
@@ -21,10 +23,12 @@ const getCrags = async (req: any, res: any) => {
 
 const getCragById = async (req: any, res: any) => {
     try {
-        client.connect();
+        await client.connect();
         const db = client.db('climbtime');
         const crag = await db.collection('crags').findOne({ _id: new ObjectId(req.params.id) });
         res.json(crag);
+    } catch (error: any) {
+        res.status(error.status || 500).json({ error: 'Internal Server Error' });
     } finally {
         await client.close();
     }
@@ -41,10 +45,13 @@ const createCrag = async (req: any, res: any) => {
             style: req.body.style,
             gradeRange: req.body.gradeRange
         }
-        client.connect();
+        await client.connect();
         const db = client.db('climbtime');
         const result = await db.collection('crags').insertOne(cragData);
         res.json(result.insertedId);
+        res.status(201).end();
+    } catch (error: any) {
+        res.status(error.status || 500).json({ error: 'Internal Server Error' });
     } finally {
         await client.close();
     }
@@ -61,11 +68,12 @@ const updateCrag = async (req: any, res: any) => {
             style: req.body.style,
             gradeRange: req.body.gradeRange
         }
-        client.connect();
+        await client.connect();
         const db = client.db('climbtime');
         const result = await db.collection('crags').updateOne({ _id: new ObjectId(req.params.id) }, { $set: cragData });
-        res.json(result);
-        res.status(201).end();
+        res.status(204).end();
+    } catch (error: any) {
+        res.status(error.status || 500).json({ error: 'Internal Server Error' });
     } finally {
         await client.close();
     }
@@ -73,10 +81,12 @@ const updateCrag = async (req: any, res: any) => {
 
 const deleteCrag = async (req: any, res: any) => {
     try {
-        client.connect();
+        await client.connect();
         const db = client.db('climbtime');
         const result = await db.collection('crags').deleteOne({ _id: new ObjectId(req.params.id) });
-        res.json(result);
+        res.status(200).json(result);
+    } catch (error: any) {
+        res.status(error.status || 500).json({ error: 'Internal Server Error' });
     } finally {
         await client.close();
     }

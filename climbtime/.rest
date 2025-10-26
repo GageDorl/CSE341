@@ -34,14 +34,14 @@ Content-Type: application/json
 ###
 DELETE localhost:3000/crags/68f4306bd0412106639ec72c HTTP/1.1
 ###
-GET cse341-1-7bum.onrender.com:3000/crags HTTP/1.1
+GET cse341-1-7bum.onrender.com/crags HTTP/1.1
 
 ###
-GET cse341-1-7bum.onrender.com/crags/68f4306bd0412106639ec72c HTTP/1.1
+GET cse341-1-7bum.onrender.com/crags/68f4461731a6868fd0e65650 HTTP/1.1
 
 ###
 
-POST cse341-1-7bum.onrender.comcrags HTTP/1.1
+POST cse341-1-7bum.onrender.com/crags HTTP/1.1
 Content-Type: application/json
 
 {
@@ -57,6 +57,7 @@ Content-Type: application/json
 ###
 PUT cse341-1-7bum.onrender.com/crags/68f4306bd0412106639ec72c HTTP/1.1
 Content-Type: application/json
+
 {
     "name": "Paramount Rock",
     "location": "{43.637898, -111.654301}",
@@ -68,4 +69,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE cse341-1-7bum.onrender.com/crags/68f4306bd0412106639ec72c HTTP/1.1
+DELETE cse341-1-7bum.onrender.com/crags/68f4461731a6868fd0e65650 HTTP/1.1
