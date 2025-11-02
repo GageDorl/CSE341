@@ -6,7 +6,7 @@ export const validateCrag = () => {
         body('location').notEmpty().withMessage('Location is required'),
         body('description').notEmpty().withMessage('Description is required'), 
         body('rockType').notEmpty().withMessage('Rock Type is required'),
-        body('approachTime').isNumeric().withMessage('Approach Time must be a number'),
+        body('approachTime').notEmpty().withMessage('Approach Time must be a number'),
         body('style').notEmpty().withMessage('Style is required'),
         body('gradeRange').notEmpty().withMessage('Grade Range is required')
     ]
@@ -17,7 +17,7 @@ export const validateRoute = () => {
         body('name').notEmpty().withMessage('Name is required'),
         body('grade').notEmpty().withMessage('Grade is required'),
         body('type').notEmpty().withMessage('Type is required'),
-        body('length').isNumeric().withMessage('Length must be a number'),
+        body('length').notEmpty().withMessage('Length must be a number'),
         body('cragId').notEmpty().withMessage('Crag ID is required')
     ]
 }
