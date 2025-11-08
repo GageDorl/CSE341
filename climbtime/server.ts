@@ -10,7 +10,7 @@ const config = {
     authRequired: false,
     auth0Logout: true,
     secret: process.env.secretKey,
-    baseURL: 'http://localhost:3000',
+    baseURL: process.env.BASE_URL,
     clientID: 'H0yKGiy57WfNNMMkPtjUTl64kGIrv1tN',
     issuerBaseURL: 'https://dev-kjpbnr84pxwgvc7n.us.auth0.com',
     routes: {
@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 const swaggerOptions = {
   swaggerOptions: {
-    oauth2RedirectUrl: 'http://localhost:3000/api-docs/oauth2-redirect.html',
+    oauth2RedirectUrl: process.env.BASE_URL + '/api-docs/oauth2-redirect.html',
     persistAuthorization: true,
   },
 };
