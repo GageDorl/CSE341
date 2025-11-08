@@ -28,6 +28,7 @@ const getCragById = async (req: any, res: any) => {
         const crag = await db.collection('crags').findOne({ _id: new ObjectId(req.params.id) });
         res.json(crag);
     } catch (error: any) {
+        console.log(error);
         res.status(error.status || 500).json({ error: 'Internal Server Error' });
     } finally {
         await client.close();

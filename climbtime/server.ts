@@ -4,7 +4,7 @@ const app = express();
 import routes from './routes/index.ts';
 import swaggerUI from 'swagger-ui-express';
 import swaggerFile from './swagger.json' assert { type: 'json' };
-import {auth} from 'express-openid-connect';
+import { auth } from 'express-openid-connect';
 
 const config = {
     authRequired: false,

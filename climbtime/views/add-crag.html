@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/scripts/header.js" defer></script>
+
+    <title>Add Crag - ClimbTime</title>
+</head>
+<body>
+    <div class="main-message">
+        <h1>Add a New Crag</h1>
+        <form action="/add-crag" method="POST">
+            <div>
+                <label for="name">Crag Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+            <div>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <button type="submit">Add Crag</button>
+        </form>
+    </div>
+</body>
+</html>

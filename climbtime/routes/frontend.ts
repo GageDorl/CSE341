@@ -30,7 +30,7 @@ routes.get('/me', (req, res) => {
     res.status(401).json({ loggedIn: false });
   }
 });
-routes.get('/:page',requiresAuth(), (req, res) => {
+routes.get('/:page', requiresAuth(), (req, res) => {
     let page = req.params.page;
     res.sendFile(path.join(process.cwd(), 'views', page+'.html'));
 });
