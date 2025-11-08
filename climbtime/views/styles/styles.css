@@ -1,0 +1,115 @@
+:root{
+    --primary-color: #8dbce0;
+    --secondary-color: #2e250e;
+    --tertiary-color:  #514529;
+    --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: var(--primary-color);
+    font-family: var(--font-family);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a{
+    /* text-decoration: none; */
+    color: inherit;
+}
+
+header{
+    background-color: var(--secondary-color);
+    padding: 1em 2em;
+    margin-bottom: 2em;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    a{
+        text-decoration: none;
+    }
+    nav{
+        display: flex;
+        margin-left: auto;
+        align-items: center;
+        justify-content: center;
+        ul{
+            justify-self: center;
+            display:flex;
+            flex-direction: row;
+            gap: 1em;
+            list-style: none;
+        }
+    }
+}
+
+.main-message{
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    background-color: var(--secondary-color);
+    padding: 2em 3.5em;
+    border-radius: 1em;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    max-width: 800px;
+}
+
+form {
+    color:black;
+    display:flex;
+    gap:.75em;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    div{
+        text-align: left;
+    }
+    input{
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    button{
+        width: 100%;
+        padding: 10px;
+        background-color: var(--primary-color);
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+}
+
+#crag-list, #route-list {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1em;
+    list-style: none;
+    li{
+        background-color: white;
+        color:black;
+        text-align: left;
+        padding: 1em;
+        border-radius: .5em;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+        width: clamp(200px, 100%, 300px);
+    }
+}

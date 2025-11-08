@@ -5,34 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
     <script src="/scripts/header.js" defer></script>
-
-    <title>Climb Time Crag Finder</title>
+    <script src="/scripts/register.js" defer></script>
+    <title>Climb Time Crag Finder - Register</title>
 </head>
 <body>
     <div class="main-message">
-        <div>
-            <h1>Welcome to Climb Time Crag Finder</h1>
-            <p>Your one-stop solution for finding the best climbing crags.</p>
-        </div>
-        <form action="/login" method="POST" id="login-form">
-            <h3>Login</h3>
+        <h1>Register</h1>
+        <form action="/register" method="POST">
             <div>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
             </div>
             <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit">Login</button>
+            <button type="submit">Register</button>
         </form>
         <div>
-            <p>Don't have an account? <a href="/register">Register here</a></p>
+            <p>Already have an account? <a href="/">Login here</a></p>
             <p>Don't want to sign in? <a href="/view-crags">Explore Crags</a></p>
         </div>
     </div>
-    
-
-    <!-- <a href="/view-crags">Explore Crags</a> -->
 </body>
 </html>

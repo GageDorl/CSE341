@@ -6,7 +6,7 @@
     "version": "1.0.0"
   },
   "host": "cse341-1-7bum.onrender.com",
-  "basePath": "/",
+  "basePath": "/api/",
   "schemes": [
     "http",
     "https"
