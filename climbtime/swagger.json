@@ -5,6 +5,24 @@
     "description": "API for finding climbing crags, routes, and viewing comments on routes",
     "version": "1.0.0"
   },
+  "securityDefinitions": {
+    "oauth2": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "https://dev-kjpbnr84pxwgvc7n.us.auth0.com/authorize",
+      "tokenUrl": "https://dev-kjpbnr84pxwgvc7n.us.auth0.com/oauth/token",
+      "scopes": {
+        "openid": "OpenID scope",
+        "profile": "Profile scope",
+        "api.read": "Read access to API"
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2": [ "api.read" ]
+    }
+  ],
   "host": "cse341-1-7bum.onrender.com",
   "basePath": "/api/",
   "schemes": [

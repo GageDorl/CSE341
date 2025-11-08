@@ -4,11 +4,33 @@ const app = express();
 import routes from './routes/index.ts';
 import swaggerUI from 'swagger-ui-express';
 import swaggerFile from './swagger.json' assert { type: 'json' };
+import {auth} from 'express-openid-connect';
 
+const config = {
+    authRequired: false,
+    auth0Logout: true,
+    secret: process.env.secretKey,
+    baseURL: 'http://localhost:3000',
+    clientID: 'H0yKGiy57WfNNMMkPtjUTl64kGIrv1tN',
+    issuerBaseURL: 'https://dev-kjpbnr84pxwgvc7n.us.auth0.com',
+    routes: {
+        login: '/login',
+        callback: '/callback',
+        logout: '/logout'
+    }
+}
+
+app.use(auth(config));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerFile));
+const swaggerOptions = {
+  swaggerOptions: {
+    oauth2RedirectUrl: 'http://localhost:3000/api-docs/oauth2-redirect.html',
+    persistAuthorization: true,
+  },
+};
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerFile, swaggerOptions));
 app.use('/', routes);
 
 app.listen(process.env.PORT || 3000, () => {
